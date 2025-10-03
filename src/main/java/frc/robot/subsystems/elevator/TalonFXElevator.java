@@ -27,8 +27,8 @@ public class TalonFXElevator implements ElevatorBase {
   private static final double kD = 0;
 
   // Default speed multipliers (Can be tuned)
-  private static final double UP_SPEED = 0.01; // Full speed up
-  private static final double DOWN_SPEED = 0.01; // Slower speed down (gravity helps)
+  private static final double UP_SPEED = 0.05; // Full speed up
+  private static final double DOWN_SPEED = 0.015; // Slower speed down (gravity helps)
 
   private BaseStatusSignal[] signals;
 
@@ -108,5 +108,7 @@ public class TalonFXElevator implements ElevatorBase {
     // Apply speed control
     leftMotor.setVoltage(pidOutput * speedMultiplier);
     rightMotor.setVoltage(pidOutput * speedMultiplier);
+
+    System.out.println(pidOutput * speedMultiplier);
   }
 }

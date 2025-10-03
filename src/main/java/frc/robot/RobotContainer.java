@@ -270,8 +270,8 @@ public class RobotContainer {
     buttonBox.button(14).whileTrue(wrist.manualWrist(wrist, () -> 0.15));
 
     // Manual Climb control
-    buttonBox.button(30).whileTrue(climb.manualClimb(climb, () -> 1));
-    buttonBox.button(29).whileTrue(climb.manualClimb(climb, () -> -1));
+    buttonBox.button(29).whileTrue(climb.manualClimb(climb, () -> 1));
+    buttonBox.button(30).whileTrue(climb.manualClimb(climb, () -> -1));
 
     // buttonBox.button(4).whileTrue(EndEffectorCommands.WristToPosition(wrist, Setpoints.L1_REEF));
   }

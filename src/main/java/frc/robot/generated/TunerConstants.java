@@ -80,7 +80,7 @@ public class TunerConstants {
 
   // Theoretical free speed (m/s) at 12 V applied output;
   // This needs to be tuned to your individual robot
-  public static final LinearVelocity kSpeedAt12Volts = MetersPerSecond.of(10);
+  public static final LinearVelocity kSpeedAt12Volts = MetersPerSecond.of(24);
 
   // Every 1 rotation of the azimuth results in kCoupleRatio drive motor turns;
   // This may need to be tuned to your individual robot
@@ -137,10 +137,12 @@ public class TunerConstants {
   // If there are issues w steering/moving, check encoder offsets (Tuesday)
 
   // Something for Blake (Or Whoever has to work w the code for Tri/Remix)
-  // Use pheonix tuner to reset turning encoder values (use the value called absolutePositionNoOffset)
+  // Use pheonix tuner to reset turning encoder values (use the value called
+  // absolutePositionNoOffset)
   // and flip the sign of the number as in negative -> positive and vice versa.
 
-  // make sure the wheels are also straightened when u retune the thing (use a metal bar or a straight edge)
+  // make sure the wheels are also straightened when u retune the thing (use a metal bar or a
+  // straight edge)
   // worse case, just retune w tuner constants
 
   // Front Left
@@ -148,12 +150,11 @@ public class TunerConstants {
   private static final int kFrontLeftSteerMotorId = 3;
   private static final int kFrontLeftEncoderId = 13;
 
-
   // Only mess with this please and only change the stuff in the () or at worse, after the equals
-  private static final Angle kFrontLeftEncoderOffset = Rotations.of(-0.23583984375); // dont comment out the ; and make sure it is there
+  private static final Angle kFrontLeftEncoderOffset =
+      Rotations.of(-0.235352); // dont comment out the ; and make sure it is there
   // ^ This is the encoder offset u will need to check
   // Rotations.of(-0.23583984375); <- copy this in case u mess it up
-
 
   private static final boolean kFrontLeftSteerMotorInverted = false;
   private static final boolean kFrontLeftEncoderInverted = false;
@@ -167,7 +168,7 @@ public class TunerConstants {
   private static final int kFrontRightEncoderId = 10;
 
   // Only mess with this please
-  private static final Angle kFrontRightEncoderOffset = Rotations.of(-0.133301);
+  private static final Angle kFrontRightEncoderOffset = Rotations.of(-0.181396);
   // ^ This is the encoder offset u will need to check
   // Rotations.of(-0.23583984375); <- copy this in case u mess it up
 
@@ -183,7 +184,7 @@ public class TunerConstants {
   private static final int kBackLeftEncoderId = 12;
 
   // Only mess with this please
-  private static final Angle kBackLeftEncoderOffset = Rotations.of(0.321533203125);
+  private static final Angle kBackLeftEncoderOffset = Rotations.of(0.320801);
   // ^ This is the encoder offset u will need to check
   // Rotations.of(-0.23583984375); <- copy this in case u mess it up
 
@@ -199,7 +200,7 @@ public class TunerConstants {
   private static final int kBackRightEncoderId = 11;
 
   // Only mess with this please
-  private static final Angle kBackRightEncoderOffset = Rotations.of(0.455322);
+  private static final Angle kBackRightEncoderOffset = Rotations.of(-0.477051);
   // ^ This is the encoder offset u will need to check
   // Rotations.of(-0.23583984375); <- copy this in case u mess it up
 

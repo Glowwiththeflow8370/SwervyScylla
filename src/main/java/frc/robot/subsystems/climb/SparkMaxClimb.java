@@ -10,8 +10,8 @@ import edu.wpi.first.math.controller.ProfiledPIDController;
 
 public class SparkMaxClimb implements ClimbBase {
 
-  private SparkMax climbMotor, climbMotorFollower;
-  private SparkMaxConfig climbMotorConfig, climbMotorFollowerConfig;
+  private SparkMax climbMotor;
+  private SparkMaxConfig climbMotorConfig;
 
   // Considering the angle of motion is similar
   // to the wrist, imma try to use code
@@ -23,7 +23,7 @@ public class SparkMaxClimb implements ClimbBase {
   public SparkMaxClimb() {
     // Create and configure the climb motors
     climbMotor = new SparkMax(ClimbConstants.climbMotorID, MotorType.kBrushless);
-    climbMotorFollower = new SparkMax(ClimbConstants.climbMotorFollower, MotorType.kBrushless);
+    // climbMotorFollower = new SparkMax(ClimbConstants.climbMotorFollower, MotorType.kBrushless);
 
     climbMotorConfig = new SparkMaxConfig();
     // encoder setup?
@@ -31,16 +31,17 @@ public class SparkMaxClimb implements ClimbBase {
     // Idle mode configuration
     climbMotorConfig.idleMode(IdleMode.kBrake);
 
-    climbMotorFollowerConfig = new SparkMaxConfig();
-    climbMotorFollowerConfig.idleMode(IdleMode.kBrake);
-    climbMotorFollowerConfig.follow(climbMotor, true);
+    // climbMotorFollowerConfig = new SparkMaxConfig();
+    // climbMotorFollowerConfig.idleMode(IdleMode.kBrake);
+    // climbMotorFollowerConfig.follow(climbMotor, true);
 
     // Apply configurations
     climbMotor.configure(
         climbMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-    climbMotorFollower.configure(
-        climbMotorFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    // climbMotorFollower.configure(
+    //     climbMotorFollowerConfig, ResetMode.kResetSafeParameters,
+    // PersistMode.kPersistParameters);
   }
 
   // refer to the class ClimbBase for more information on the
