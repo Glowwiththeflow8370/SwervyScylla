@@ -26,11 +26,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.DriveCommands;
 import frc.robot.generated.TunerConstants;
-import frc.robot.subsystems.climb.Climb;
-import frc.robot.subsystems.climb.ClimbBase;
-import frc.robot.subsystems.climb.ClimbConstants;
-import frc.robot.subsystems.climb.SimClimb;
-import frc.robot.subsystems.climb.SparkMaxClimb;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.drive.GyroIO;
 import frc.robot.subsystems.drive.GyroIOPigeon2;
@@ -65,7 +60,7 @@ public class RobotContainer {
   private final Elevator elevator;
   private final Intake intake;
   private final Wrist wrist;
-  private final Climb climb;
+  // private final Climb climb;
 
   // Controller
   private final CommandXboxController controller = new CommandXboxController(0);
@@ -88,7 +83,7 @@ public class RobotContainer {
                 new ModuleIOTalonFX(TunerConstants.BackRight));
         // Subsystem declarations
         elevator = new Elevator(new TalonFXElevator());
-        climb = new Climb(new SparkMaxClimb());
+        // climb = new Climb(new SparkMaxClimb());
         wrist = new Wrist(new SparkMaxWrist());
         intake = new Intake(new SparkFlexIntake());
         break;
@@ -104,7 +99,7 @@ public class RobotContainer {
                 new ModuleIOSim(TunerConstants.BackRight));
 
         elevator = new Elevator(new SimElevator());
-        climb = new Climb(new SimClimb());
+        // climb = new Climb(new SimClimb());
         wrist = new Wrist(new SimWrist());
         intake = new Intake(new SimIntake());
         break;
@@ -120,7 +115,7 @@ public class RobotContainer {
                 new ModuleIO() {});
         // Blah blah blah
         elevator = new Elevator(new ElevatorBase() {});
-        climb = new Climb(new ClimbBase() {});
+        // climb = new Climb(new ClimbBase() {});
         wrist = new Wrist(new WristBase() {});
         intake = new Intake(new IntakeBase() {});
         break;
@@ -191,13 +186,13 @@ public class RobotContainer {
     // Reference the commented print statements found in each
     // command method
 
-    climb.setDefaultCommand(
-        climb.manualClimb(
-            climb,
-            () ->
-                controller.y().getAsBoolean()
-                    ? ClimbConstants.climbRunValue
-                    : controller.b().getAsBoolean() ? -ClimbConstants.climbRunValue : 0));
+    // climb.setDefaultCommand(
+    //     climb.manualClimb(
+    //         climb,
+    //         () ->
+    //             controller.y().getAsBoolean()
+    //                 ? ClimbConstants.climbRunValue
+    //                 : controller.b().getAsBoolean() ? -ClimbConstants.climbRunValue : 0));
     elevator.setDefaultCommand(elevator.posElevator(elevator, Setpoints.IDLE.getElevatorPos()));
     intake.setDefaultCommand(
         intake.manualIntake(
@@ -270,8 +265,8 @@ public class RobotContainer {
     buttonBox.button(14).whileTrue(wrist.manualWrist(wrist, () -> 0.15));
 
     // Manual Climb control
-    buttonBox.button(29).whileTrue(climb.manualClimb(climb, () -> 1));
-    buttonBox.button(30).whileTrue(climb.manualClimb(climb, () -> -1));
+    // buttonBox.button(29).whileTrue(climb.manualClimb(climb, () -> 1));
+    // buttonBox.button(30).whileTrue(climb.manualClimb(climb, () -> -1));
 
     // buttonBox.button(4).whileTrue(EndEffectorCommands.WristToPosition(wrist, Setpoints.L1_REEF));
   }
